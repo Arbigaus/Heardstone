@@ -23,6 +23,7 @@
 		D71F2B602A25873C0098C6F9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B5F2A25873C0098C6F9 /* Card.swift */; };
 		D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B622A2587910098C6F9 /* CardModel.swift */; };
 		D71F2B662A258BB90098C6F9 /* CardModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B652A258BB90098C6F9 /* CardModelTest.swift */; };
+		D76914BD2A26B2DE003C02B3 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76914BC2A26B2DE003C02B3 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		D71F2B5F2A25873C0098C6F9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D71F2B622A2587910098C6F9 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		D71F2B652A258BB90098C6F9 /* CardModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModelTest.swift; sourceTree = "<group>"; };
+		D76914BC2A26B2DE003C02B3 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,7 +156,7 @@
 		D71F2B4B2A256BB10098C6F9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				D71F2B5B2A2584E30098C6F9 /* Models */,
+				D76914BB2A26B2CD003C02B3 /* Helpers */,
 				D71F2B4C2A256BCA0098C6F9 /* ServiceAPI.swift */,
 			);
 			path = Service;
@@ -186,13 +188,6 @@
 			path = CardsList;
 			sourceTree = "<group>";
 		};
-		D71F2B5B2A2584E30098C6F9 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		D71F2B5E2A2587290098C6F9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +211,14 @@
 				D71F2B562A25840D0098C6F9 /* CardsList */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D76914BB2A26B2CD003C02B3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D76914BC2A26B2DE003C02B3 /* Keys.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,6 +352,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71F2B5A2A25843B0098C6F9 /* CardsListViewModel.swift in Sources */,
+				D76914BD2A26B2DE003C02B3 /* Keys.swift in Sources */,
 				D71F2B242A256B8B0098C6F9 /* ContentView.swift in Sources */,
 				D71F2B602A25873C0098C6F9 /* Card.swift in Sources */,
 				D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */,
