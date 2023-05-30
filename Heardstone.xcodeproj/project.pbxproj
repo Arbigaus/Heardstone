@@ -14,6 +14,10 @@
 		D71F2B332A256B8E0098C6F9 /* HeardstoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B322A256B8E0098C6F9 /* HeardstoneTests.swift */; };
 		D71F2B3D2A256B8E0098C6F9 /* HeardstoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B3C2A256B8E0098C6F9 /* HeardstoneUITests.swift */; };
 		D71F2B3F2A256B8E0098C6F9 /* HeardstoneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B3E2A256B8E0098C6F9 /* HeardstoneUITestsLaunchTests.swift */; };
+		D71F2B4D2A256BCA0098C6F9 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B4C2A256BCA0098C6F9 /* ServiceAPI.swift */; };
+		D71F2B502A257C230098C6F9 /* ServiceAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B4F2A257C230098C6F9 /* ServiceAPITest.swift */; };
+		D71F2B532A257F040098C6F9 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B522A257F040098C6F9 /* URLSessionMock.swift */; };
+		D71F2B552A257FB60098C6F9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B542A257FB60098C6F9 /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +48,10 @@
 		D71F2B382A256B8E0098C6F9 /* HeardstoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeardstoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71F2B3C2A256B8E0098C6F9 /* HeardstoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeardstoneUITests.swift; sourceTree = "<group>"; };
 		D71F2B3E2A256B8E0098C6F9 /* HeardstoneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeardstoneUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D71F2B4C2A256BCA0098C6F9 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
+		D71F2B4F2A257C230098C6F9 /* ServiceAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPITest.swift; sourceTree = "<group>"; };
+		D71F2B522A257F040098C6F9 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
+		D71F2B542A257FB60098C6F9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 		D71F2B152A256B8B0098C6F9 = {
 			isa = PBXGroup;
 			children = (
+				D71F2B4B2A256BB10098C6F9 /* Service */,
 				D71F2B202A256B8B0098C6F9 /* Heardstone */,
 				D71F2B312A256B8E0098C6F9 /* HeardstoneTests */,
 				D71F2B3B2A256B8E0098C6F9 /* HeardstoneUITests */,
@@ -113,6 +122,8 @@
 		D71F2B312A256B8E0098C6F9 /* HeardstoneTests */ = {
 			isa = PBXGroup;
 			children = (
+				D71F2B512A257EAA0098C6F9 /* Helpers */,
+				D71F2B4E2A257BE10098C6F9 /* Service */,
 				D71F2B322A256B8E0098C6F9 /* HeardstoneTests.swift */,
 			);
 			path = HeardstoneTests;
@@ -125,6 +136,31 @@
 				D71F2B3E2A256B8E0098C6F9 /* HeardstoneUITestsLaunchTests.swift */,
 			);
 			path = HeardstoneUITests;
+			sourceTree = "<group>";
+		};
+		D71F2B4B2A256BB10098C6F9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B4C2A256BCA0098C6F9 /* ServiceAPI.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D71F2B4E2A257BE10098C6F9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B4F2A257C230098C6F9 /* ServiceAPITest.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		D71F2B512A257EAA0098C6F9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B522A257F040098C6F9 /* URLSessionMock.swift */,
+				D71F2B542A257FB60098C6F9 /* Card.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71F2B242A256B8B0098C6F9 /* ContentView.swift in Sources */,
+				D71F2B4D2A256BCA0098C6F9 /* ServiceAPI.swift in Sources */,
 				D71F2B222A256B8B0098C6F9 /* HeardstoneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +303,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D71F2B532A257F040098C6F9 /* URLSessionMock.swift in Sources */,
+				D71F2B502A257C230098C6F9 /* ServiceAPITest.swift in Sources */,
 				D71F2B332A256B8E0098C6F9 /* HeardstoneTests.swift in Sources */,
+				D71F2B552A257FB60098C6F9 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
