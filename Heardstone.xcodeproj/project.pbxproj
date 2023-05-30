@@ -17,7 +17,12 @@
 		D71F2B4D2A256BCA0098C6F9 /* ServiceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B4C2A256BCA0098C6F9 /* ServiceAPI.swift */; };
 		D71F2B502A257C230098C6F9 /* ServiceAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B4F2A257C230098C6F9 /* ServiceAPITest.swift */; };
 		D71F2B532A257F040098C6F9 /* URLSessionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B522A257F040098C6F9 /* URLSessionMock.swift */; };
-		D71F2B552A257FB60098C6F9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B542A257FB60098C6F9 /* Card.swift */; };
+		D71F2B552A257FB60098C6F9 /* CardMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B542A257FB60098C6F9 /* CardMock.swift */; };
+		D71F2B582A25842B0098C6F9 /* CardsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B572A25842B0098C6F9 /* CardsListView.swift */; };
+		D71F2B5A2A25843B0098C6F9 /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B592A25843B0098C6F9 /* CardsListViewModel.swift */; };
+		D71F2B602A25873C0098C6F9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B5F2A25873C0098C6F9 /* Card.swift */; };
+		D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B622A2587910098C6F9 /* CardModel.swift */; };
+		D71F2B662A258BB90098C6F9 /* CardModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B652A258BB90098C6F9 /* CardModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +56,12 @@
 		D71F2B4C2A256BCA0098C6F9 /* ServiceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPI.swift; sourceTree = "<group>"; };
 		D71F2B4F2A257C230098C6F9 /* ServiceAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAPITest.swift; sourceTree = "<group>"; };
 		D71F2B522A257F040098C6F9 /* URLSessionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionMock.swift; sourceTree = "<group>"; };
-		D71F2B542A257FB60098C6F9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D71F2B542A257FB60098C6F9 /* CardMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMock.swift; sourceTree = "<group>"; };
+		D71F2B572A25842B0098C6F9 /* CardsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListView.swift; sourceTree = "<group>"; };
+		D71F2B592A25843B0098C6F9 /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
+		D71F2B5F2A25873C0098C6F9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D71F2B622A2587910098C6F9 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		D71F2B652A258BB90098C6F9 /* CardModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +113,8 @@
 		D71F2B202A256B8B0098C6F9 /* Heardstone */ = {
 			isa = PBXGroup;
 			children = (
+				D76914BA2A26B10A003C02B3 /* Scenes */,
+				D71F2B5E2A2587290098C6F9 /* Models */,
 				D71F2B212A256B8B0098C6F9 /* HeardstoneApp.swift */,
 				D71F2B232A256B8B0098C6F9 /* ContentView.swift */,
 				D71F2B252A256B8D0098C6F9 /* Assets.xcassets */,
@@ -122,6 +134,7 @@
 		D71F2B312A256B8E0098C6F9 /* HeardstoneTests */ = {
 			isa = PBXGroup;
 			children = (
+				D71F2B642A258BA90098C6F9 /* Models */,
 				D71F2B512A257EAA0098C6F9 /* Helpers */,
 				D71F2B4E2A257BE10098C6F9 /* Service */,
 				D71F2B322A256B8E0098C6F9 /* HeardstoneTests.swift */,
@@ -141,6 +154,7 @@
 		D71F2B4B2A256BB10098C6F9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				D71F2B5B2A2584E30098C6F9 /* Models */,
 				D71F2B4C2A256BCA0098C6F9 /* ServiceAPI.swift */,
 			);
 			path = Service;
@@ -158,9 +172,50 @@
 			isa = PBXGroup;
 			children = (
 				D71F2B522A257F040098C6F9 /* URLSessionMock.swift */,
-				D71F2B542A257FB60098C6F9 /* Card.swift */,
+				D71F2B542A257FB60098C6F9 /* CardMock.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D71F2B562A25840D0098C6F9 /* CardsList */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B572A25842B0098C6F9 /* CardsListView.swift */,
+				D71F2B592A25843B0098C6F9 /* CardsListViewModel.swift */,
+			);
+			path = CardsList;
+			sourceTree = "<group>";
+		};
+		D71F2B5B2A2584E30098C6F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D71F2B5E2A2587290098C6F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B5F2A25873C0098C6F9 /* Card.swift */,
+				D71F2B622A2587910098C6F9 /* CardModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D71F2B642A258BA90098C6F9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B652A258BB90098C6F9 /* CardModelTest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D76914BA2A26B10A003C02B3 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B562A25840D0098C6F9 /* CardsList */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,8 +348,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D71F2B5A2A25843B0098C6F9 /* CardsListViewModel.swift in Sources */,
 				D71F2B242A256B8B0098C6F9 /* ContentView.swift in Sources */,
+				D71F2B602A25873C0098C6F9 /* Card.swift in Sources */,
+				D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */,
 				D71F2B4D2A256BCA0098C6F9 /* ServiceAPI.swift in Sources */,
+				D71F2B582A25842B0098C6F9 /* CardsListView.swift in Sources */,
 				D71F2B222A256B8B0098C6F9 /* HeardstoneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,10 +362,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D71F2B662A258BB90098C6F9 /* CardModelTest.swift in Sources */,
 				D71F2B532A257F040098C6F9 /* URLSessionMock.swift in Sources */,
 				D71F2B502A257C230098C6F9 /* ServiceAPITest.swift in Sources */,
 				D71F2B332A256B8E0098C6F9 /* HeardstoneTests.swift in Sources */,
-				D71F2B552A257FB60098C6F9 /* Card.swift in Sources */,
+				D71F2B552A257FB60098C6F9 /* CardMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

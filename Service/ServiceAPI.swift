@@ -16,7 +16,7 @@ final class ServiceAPI: ServiceAPIProtocol {
 
     var session: URLSessionProtocol = URLSession.shared
 
-    func fetch<T: Decodable>(from endpoint: String) async throws -> T {
+    func fetch<T: Decodable>(from endpoint: String = "") async throws -> T {
         let url = URL(string: "\(baseUrl)\(endpoint)")!
         let privateKey = "Some Key"
         let privateHost = "Some private host"
