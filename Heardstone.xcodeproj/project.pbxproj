@@ -24,6 +24,8 @@
 		D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B622A2587910098C6F9 /* CardModel.swift */; };
 		D71F2B662A258BB90098C6F9 /* CardModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B652A258BB90098C6F9 /* CardModelTest.swift */; };
 		D76914BD2A26B2DE003C02B3 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76914BC2A26B2DE003C02B3 /* Keys.swift */; };
+		D76914C02A26B7D5003C02B3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76914BF2A26B7D5003C02B3 /* View+Extensions.swift */; };
+		D76914C32A26B803003C02B3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76914C22A26B803003C02B3 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,9 @@
 		D71F2B622A2587910098C6F9 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		D71F2B652A258BB90098C6F9 /* CardModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModelTest.swift; sourceTree = "<group>"; };
 		D76914BC2A26B2DE003C02B3 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
+		D76914BF2A26B7D5003C02B3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		D76914C22A26B803003C02B3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		D76914C42A26B8D7003C02B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +120,9 @@
 		D71F2B202A256B8B0098C6F9 /* Heardstone */ = {
 			isa = PBXGroup;
 			children = (
+				D76914C42A26B8D7003C02B3 /* Info.plist */,
+				D76914C12A26B7ED003C02B3 /* Components */,
+				D76914BE2A26B7C0003C02B3 /* Extensions */,
 				D76914BA2A26B10A003C02B3 /* Scenes */,
 				D71F2B5E2A2587290098C6F9 /* Models */,
 				D71F2B212A256B8B0098C6F9 /* HeardstoneApp.swift */,
@@ -219,6 +227,22 @@
 				D76914BC2A26B2DE003C02B3 /* Keys.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D76914BE2A26B7C0003C02B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D76914BF2A26B7D5003C02B3 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D76914C12A26B7ED003C02B3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D76914C22A26B803003C02B3 /* LoadingView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -352,7 +376,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71F2B5A2A25843B0098C6F9 /* CardsListViewModel.swift in Sources */,
+				D76914C02A26B7D5003C02B3 /* View+Extensions.swift in Sources */,
 				D76914BD2A26B2DE003C02B3 /* Keys.swift in Sources */,
+				D76914C32A26B803003C02B3 /* LoadingView.swift in Sources */,
 				D71F2B242A256B8B0098C6F9 /* ContentView.swift in Sources */,
 				D71F2B602A25873C0098C6F9 /* Card.swift in Sources */,
 				D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */,
@@ -524,7 +550,7 @@
 				DEVELOPMENT_TEAM = 3DAQ868NGN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Heardstone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -553,7 +579,7 @@
 				DEVELOPMENT_TEAM = 3DAQ868NGN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = Heardstone/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

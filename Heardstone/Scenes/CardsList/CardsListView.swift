@@ -8,13 +8,25 @@
 import SwiftUI
 
 struct CardsListView: View {
+    @StateObject private var viewModel: CardsListViewModel
+
+    init(viewModel: CardsListViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(viewModel.cardsList) { card in
+            Text(card.name ?? "No name")
+        }
+        .isLoading(viewModel.loading)
+        .task {
+            await viewModel.fetchCardsList()
+        }
     }
 }
 
 struct CardsListView_Previews: PreviewProvider {
     static var previews: some View {
-        CardsListView()
+        CardsListView(viewModel: CardsListViewModel())
     }
 }

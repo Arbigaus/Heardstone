@@ -17,15 +17,15 @@ final class ServiceAPI: ServiceAPIProtocol {
     var session: URLSessionProtocol = URLSession.shared
 
     func fetch<T: Decodable>(from endpoint: String = "") async throws -> T {
-        let url = URL(string: "\(baseUrl)\(endpoint)")!
-        let privateKey = "Some Key"
-        let privateHost = "Some private host"
+        guard let url = URL(string: "\(baseUrl)\(endpoint)") else {
+            throw(NSError(domain: "Invalid URL", code: -1))
+        }
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
-        request.addValue(privateKey, forHTTPHeaderField: "X-RapidAPI-Key")
-        request.addValue(privateHost, forHTTPHeaderField: "X-RapidAPI-Host")
+        request.addValue(Keys.privateKey.rawValue, forHTTPHeaderField: "X-RapidAPI-Key")
+        request.addValue(Keys.privateHost.rawValue, forHTTPHeaderField: "X-RapidAPI-Host")
 
         do {
             let (data, response)  = try await session.data(for: request)
@@ -37,7 +37,6 @@ final class ServiceAPI: ServiceAPIProtocol {
             guard statusCode >= 200 && statusCode <= 204 else {
                 throw NSError(domain: "Response error", code: statusCode)
             }
-
             let decodedData = try JSONDecoder().decode(T.self, from: data)
             return decodedData
         } catch(let error) {
@@ -51,3 +50,7 @@ protocol URLSessionProtocol {
 }
 
 extension URLSession: URLSessionProtocol { }
+
+/*
+ {"cardId":"ETC_395","dbfId":96992,"name":"DJ Manastorm","cardSet":"Festival of Legends","type":"Minion","rarity":"Legendary","cost":10,"attack":8,"health":8,"text":"<b>Battlecry:</b> Set the Cost of spells in your hand to (0).\nAfter you cast one, the others cost (1) more.","flavor":"Do not sleep on his Tinker Town deep house set - absolutely legendary.","artist":"Konstantin Porubov","collectible":true,"elite":true,"playerClass":"Mage","howToGetSignature":"Obtainable in <i>Festival of Legends</i> card packs.","img":"https://d15f34w2p8l1cc.cloudfront.net/hearthstone/38e774abee377f13e091cec5f3479170687859936e69094ccd9bf0d452ca9bcf.png","locale":"enUS","mechanics":[{"name":"Battlecry"}]}]}
+ */

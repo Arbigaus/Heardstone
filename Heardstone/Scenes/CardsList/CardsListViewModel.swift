@@ -9,7 +9,7 @@ import Foundation
 
 final class CardsListViewModel: ObservableObject {
     @Published var loading: Bool = false
-    @Published private var cardsList: [Card] = []
+    @Published var cardsList: [Card] = []
 
     private let cardModel: CardModelProtocol
 
@@ -18,15 +18,20 @@ final class CardsListViewModel: ObservableObject {
     }
 
     func fetchCardsList() async {
-        loading = true
-
-        guard let list = try? await cardModel.fetchCardList() else {
-            loading = false
-            return
+        await MainActor.run { [weak self] in
+            self?.loading = true
         }
+        do {
+            let list = try await cardModel.fetchCardList()
 
-        cardsList = list
-        loading = false
+            await MainActor.run { [weak self] in
+                self?.cardsList = list
+                self?.loading = false
+            }
+        }
+        catch(let error) {
+            print(error)
+        }
     }
 
 }

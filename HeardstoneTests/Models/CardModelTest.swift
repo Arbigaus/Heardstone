@@ -46,24 +46,14 @@ final class CardModelTest: XCTestCase {
     private func createSampleCard() -> Card {
         let sampleURL = URL(string: "https://example.com")!
 
-        let card = Card(cardId: "123",
-                        name: "SampleCard",
-                        cardSet: "SampleSet",
-                        type: "SampleType",
-                        faction: "SampleFaction",
-                        rarity: "SampleRarity",
-                        cost: 1,
-                        attack: 1,
-                        health: 1,
-                        text: "SampleText",
-                        flavor: "SampleFlavor",
-                        artist: "SampleArtist",
-                        collectible: true,
-                        elite: false,
-                        race: "SampleRace",
-                        img: sampleURL,
-                        imgGold: sampleURL,
-                        locale: "en_US")
+        let card = Card(cardId: "Some ID",
+                        dbfId: 1,
+                        name: "Some Name",
+                        cardSet: "Card Set",
+                        type: "Type",
+                        text: "Some Text",
+                        playerClass: "Player Class",
+                        locale: "US")
 
         return card
     }
@@ -72,24 +62,7 @@ final class CardModelTest: XCTestCase {
 
 extension Card: Equatable {
     public static func == (lhs: Card, rhs: Card) -> Bool {
-        return lhs.cardId == rhs.cardId &&
-        lhs.name == rhs.name &&
-        lhs.cardSet == rhs.cardSet &&
-        lhs.type == rhs.type &&
-        lhs.faction == rhs.faction &&
-        lhs.rarity == rhs.rarity &&
-        lhs.cost == rhs.cost &&
-        lhs.attack == rhs.attack &&
-        lhs.health == rhs.health &&
-        lhs.text == rhs.text &&
-        lhs.flavor == rhs.flavor &&
-        lhs.artist == rhs.artist &&
-        lhs.collectible == rhs.collectible &&
-        lhs.elite == rhs.elite &&
-        lhs.race == rhs.race &&
-        lhs.img == rhs.img &&
-        lhs.imgGold == rhs.imgGold &&
-        lhs.locale == rhs.locale
+        return lhs.cardId == rhs.cardId
     }
 }
 

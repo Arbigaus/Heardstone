@@ -11,7 +11,7 @@ import SwiftUI
 struct HeardstoneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CardsListView(viewModel: CardsListViewModel())
         }
     }
 }

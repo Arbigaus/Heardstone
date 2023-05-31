@@ -20,12 +20,12 @@ final class CardModel: CardModelProtocol {
 
     func fetchCardList() async throws -> [Card] {
         do {
-            let list = try await service.fetch(from: "") as [Card]
+            let list: [Card] = try await service.fetch(from: "sets/The%20Grand%20Tournament")
             return list
 
         } catch(let error) {
             print(error.localizedDescription)
-            return []
+            throw(error)
         }
 
     }
