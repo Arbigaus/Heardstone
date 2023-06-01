@@ -46,14 +46,27 @@ final class CardModelTest: XCTestCase {
     private func createSampleCard() -> Card {
         let sampleURL = URL(string: "https://example.com")!
 
-        let card = Card(cardId: "Some ID",
-                        dbfId: 1,
-                        name: "Some Name",
-                        cardSet: "Card Set",
-                        type: "Type",
-                        text: "Some Text",
-                        playerClass: "Player Class",
-                        locale: "US")
+        let card = Card(
+            cardId: "1234",
+            dbfId: 5678,
+            name: "Example Card",
+            cardSet: "Set Name",
+            type: "Minion",
+            rarity: "Rare",
+            cost: 4,
+            attack: 3,
+            health: 5,
+            text: "Card text goes here",
+            flavor: "Flavor text goes here",
+            artist: "Artist Name",
+            collectible: true,
+            elite: false,
+            playerClass: "Mage",
+            howToGetSignature: "How to obtain the card signature",
+            img: "card-image-url",
+            locale: "en_US",
+            mechanics: [Mechanic(name: "Mechanic 1"), Mechanic(name: "Mechanic 2")]
+        )
 
         return card
     }

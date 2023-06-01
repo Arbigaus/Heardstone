@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardsListView: View {
+    @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel: CardsListViewModel
 
     init(viewModel: CardsListViewModel) {
@@ -15,18 +16,22 @@ struct CardsListView: View {
     }
 
     var body: some View {
-        List(viewModel.cardsList) { card in
-            Text(card.name ?? "No name")
-        }
-        .isLoading(viewModel.loading)
-        .task {
-            await viewModel.fetchCardsList()
+        VStack {
+            Text(viewModel.title)
+                .font(.system(size: 24))
+            List(viewModel.cardsList) { card in
+                Text(card.name ?? "No name")
+            }
+            .isLoading(viewModel.loading)
+            .task {
+                await viewModel.fetchCardsList()
+            }
         }
     }
 }
 
 struct CardsListView_Previews: PreviewProvider {
     static var previews: some View {
-        CardsListView(viewModel: CardsListViewModel())
+        CardsListView(viewModel: CardsListViewModel(setName: ""))
     }
 }

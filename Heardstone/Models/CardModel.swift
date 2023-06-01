@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CardModelProtocol {
-    func fetchCardList() async throws -> [Card]
+    func fetchCardList(setName: String) async throws -> [Card]
 }
 
 final class CardModel: CardModelProtocol {
@@ -18,14 +18,15 @@ final class CardModel: CardModelProtocol {
         self.service = service
     }
 
-    func fetchCardList() async throws -> [Card] {
+    func fetchCardList(setName: String) async throws -> [Card] {
         do {
-            let list: [Card] = try await service.fetch(from: "sets/The%20Grand%20Tournament")
+            let validURLString: String = setName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            let list: [Card] = try await service.fetch(from: "cards/sets/\(validURLString)")
             return list
 
         } catch(let error) {
             print(error.localizedDescription)
-            throw(error)
+            return []
         }
 
     }

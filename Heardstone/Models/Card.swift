@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card: Codable, Identifiable {
+struct Card: Decodable, Identifiable {
     let cardId: String?
     let dbfId: Int?
     let name: String?
@@ -55,10 +55,34 @@ struct Card: Codable, Identifiable {
     }
 }
 
-struct Mechanic: Codable {
+struct Mechanic: Codable, Hashable {
     let name: String?
 
     enum CodingKeys: String, CodingKey {
         case name = "name"
+    }
+}
+
+extension Card: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(cardId)
+        hasher.combine(dbfId)
+        hasher.combine(name)
+        hasher.combine(cardSet)
+        hasher.combine(type)
+        hasher.combine(rarity)
+        hasher.combine(cost)
+        hasher.combine(attack)
+        hasher.combine(health)
+        hasher.combine(text)
+        hasher.combine(flavor)
+        hasher.combine(artist)
+        hasher.combine(collectible)
+        hasher.combine(elite)
+        hasher.combine(playerClass)
+        hasher.combine(howToGetSignature)
+        hasher.combine(img)
+        hasher.combine(locale)
+        hasher.combine(mechanics)
     }
 }

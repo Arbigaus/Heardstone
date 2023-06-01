@@ -12,11 +12,12 @@ protocol ServiceAPIProtocol {
 }
 
 final class ServiceAPI: ServiceAPIProtocol {
-    private let baseUrl: String = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/"
+    private let baseUrl: String = "https://omgvamp-hearthstone-v1.p.rapidapi.com/"
 
     var session: URLSessionProtocol = URLSession.shared
 
     func fetch<T: Decodable>(from endpoint: String = "") async throws -> T {
+
         guard let url = URL(string: "\(baseUrl)\(endpoint)") else {
             throw(NSError(domain: "Invalid URL", code: -1))
         }
