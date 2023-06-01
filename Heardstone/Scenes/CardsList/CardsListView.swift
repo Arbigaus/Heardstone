@@ -16,13 +16,16 @@ struct CardsListView: View {
     }
 
     var body: some View {
-        NavigationView {
             VStack {
                 List(viewModel.cardsList) { card in
-                    ItemView(card: card)
-                        .modifier(ShadowView())
-                        .listRowSeparator(.hidden)
-                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
+                    NavigationLink {
+                        CardDetailView(viewModel: CardDetailViewModel(card: card))
+                    } label: {
+                        ItemView(card: card)
+                            .modifier(ShadowView())
+                            .listRowSeparator(.hidden)
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
+                    }
                 }
                 .listStyle(PlainListStyle())
                 .listRowBackground(Color.clear)
@@ -37,7 +40,6 @@ struct CardsListView: View {
                     .background(.bar)
                     .border(.black)
             }
-        }
         .navigationTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
     }

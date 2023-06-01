@@ -19,7 +19,7 @@ final class CardModelTest: XCTestCase {
         mockService.result = mockCards
 
         do {
-            let cards = try await cardModel.fetchCardList()
+            let cards = try await cardModel.fetchCardList(setName: "")
             XCTAssertEqual(cards.count, 2)
             XCTAssertEqual(mockCards, cards)
         } catch {
@@ -36,7 +36,7 @@ final class CardModelTest: XCTestCase {
         mockService.error = testError
 
         do {
-            let cards = try await cardModel.fetchCardList()
+            let cards = try await cardModel.fetchCardList(setName: "")
             XCTAssertEqual(cards.count, 0, "Expected card list to be empty on failure, but it was not")
         } catch {
             XCTFail("Expected call to not throw, but it did: \(error)")
@@ -65,18 +65,13 @@ final class CardModelTest: XCTestCase {
             howToGetSignature: "How to obtain the card signature",
             img: "card-image-url",
             locale: "en_US",
+            faction: "Some Faction",
             mechanics: [Mechanic(name: "Mechanic 1"), Mechanic(name: "Mechanic 2")]
         )
 
         return card
     }
 
-}
-
-extension Card: Equatable {
-    public static func == (lhs: Card, rhs: Card) -> Bool {
-        return lhs.cardId == rhs.cardId
-    }
 }
 
 class MockServiceAPI: ServiceAPIProtocol {

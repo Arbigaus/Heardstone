@@ -26,6 +26,7 @@ struct Card: Decodable, Identifiable {
     let howToGetSignature: String?
     let img: String?
     let locale: String?
+    let faction: String?
     let mechanics: [Mechanic]?
 
     var id: String? {
@@ -51,6 +52,7 @@ struct Card: Decodable, Identifiable {
         case howToGetSignature = "howToGetSignature"
         case img = "img"
         case locale = "locale"
+        case faction = "faction"
         case mechanics = "mechanics"
     }
 }
