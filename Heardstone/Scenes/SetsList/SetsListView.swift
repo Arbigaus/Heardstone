@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SetsListView: View {
     @StateObject private var viewModel: SetsListViewModel
+    @State private var viewDidAppear = false
 
     init(viewModel: SetsListViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -35,7 +36,10 @@ struct SetsListView: View {
                 .listRowBackground(Color.clear)
                 .isLoading(viewModel.loading)
                 .task {
-                    await viewModel.fetchSetsList()
+                    if !viewDidAppear {
+                        await viewModel.fetchSetsList()
+                        viewDidAppear = true
+                    }
                 }
             }
         }

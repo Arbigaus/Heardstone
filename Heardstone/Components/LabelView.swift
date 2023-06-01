@@ -12,7 +12,9 @@ struct LabelView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> UILabel {
         let label = UILabel()
-        label.numberOfLines = 0 // Enables multiple lines
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+
         return label
     }
 
@@ -20,6 +22,6 @@ struct LabelView: UIViewRepresentable {
         uiView.attributedText = attributedString
         uiView.backgroundColor = .clear
         uiView.textAlignment = .center
-        uiView.numberOfLines = 0
+        uiView.preferredMaxLayoutWidth = UIScreen.main.bounds.width
     }
 }
