@@ -20,12 +20,35 @@ struct CardsListView: View {
             Text(viewModel.title)
                 .font(.system(size: 24))
             List(viewModel.cardsList) { card in
-                Text(card.name ?? "No name")
+                ItemView(card: card)
+                    .modifier(ShadowView())
+                    .listRowSeparator(.hidden)
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
             }
+            .listStyle(PlainListStyle())
+            .listRowBackground(Color.clear)
             .isLoading(viewModel.loading)
             .task {
                 await viewModel.fetchCardsList()
             }
+        }
+    }
+
+    struct ItemView: View {
+        let card: Card
+
+        var body: some View {
+            VStack(alignment: .leading) {
+                Text(card.name ?? "Unknow name")
+                    .fontWeight(.heavy)
+                    .font(.system(size: 16))
+                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
+                Text("Class: \(card.playerClass ?? "")")
+                    .disabled(card.playerClass == nil)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            .padding()
+            .background(Color(card.playerClass ?? "Priest"))
         }
     }
 }

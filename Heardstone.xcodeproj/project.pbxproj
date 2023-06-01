@@ -23,6 +23,8 @@
 		D71F2B602A25873C0098C6F9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B5F2A25873C0098C6F9 /* Card.swift */; };
 		D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B622A2587910098C6F9 /* CardModel.swift */; };
 		D71F2B662A258BB90098C6F9 /* CardModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71F2B652A258BB90098C6F9 /* CardModelTest.swift */; };
+		D75FF8952A28E81F0044B480 /* ShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75FF8942A28E81F0044B480 /* ShadowView.swift */; };
+		D75FF8982A28EE940044B480 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D75FF8972A28EE940044B480 /* Colors.xcassets */; };
 		D76914BD2A26B2DE003C02B3 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76914BC2A26B2DE003C02B3 /* Keys.swift */; };
 		D76914C02A26B7D5003C02B3 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76914BF2A26B7D5003C02B3 /* View+Extensions.swift */; };
 		D76914C32A26B803003C02B3 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76914C22A26B803003C02B3 /* LoadingView.swift */; };
@@ -70,6 +72,8 @@
 		D71F2B5F2A25873C0098C6F9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		D71F2B622A2587910098C6F9 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		D71F2B652A258BB90098C6F9 /* CardModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModelTest.swift; sourceTree = "<group>"; };
+		D75FF8942A28E81F0044B480 /* ShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowView.swift; sourceTree = "<group>"; };
+		D75FF8972A28EE940044B480 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		D76914BC2A26B2DE003C02B3 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		D76914BF2A26B7D5003C02B3 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		D76914C22A26B803003C02B3 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 		D71F2B202A256B8B0098C6F9 /* Heardstone */ = {
 			isa = PBXGroup;
 			children = (
+				D75FF8962A28EE740044B480 /* Assets */,
+				D75FF8932A28E8030044B480 /* Modifiers */,
 				D76914C42A26B8D7003C02B3 /* Info.plist */,
 				D76914C12A26B7ED003C02B3 /* Components */,
 				D76914BE2A26B7C0003C02B3 /* Extensions */,
@@ -137,7 +143,6 @@
 				D71F2B5E2A2587290098C6F9 /* Models */,
 				D71F2B212A256B8B0098C6F9 /* HeardstoneApp.swift */,
 				D71F2B232A256B8B0098C6F9 /* ContentView.swift */,
-				D71F2B252A256B8D0098C6F9 /* Assets.xcassets */,
 				D71F2B272A256B8D0098C6F9 /* Preview Content */,
 			);
 			path = Heardstone;
@@ -223,6 +228,23 @@
 				D7E0C9622A280711002E19CF /* SetModelTest.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D75FF8932A28E8030044B480 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				D75FF8942A28E81F0044B480 /* ShadowView.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		D75FF8962A28EE740044B480 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D71F2B252A256B8D0098C6F9 /* Assets.xcassets */,
+				D75FF8972A28EE940044B480 /* Colors.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 		D76914BA2A26B10A003C02B3 /* Scenes */ = {
@@ -372,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D75FF8982A28EE940044B480 /* Colors.xcassets in Resources */,
 				D71F2B292A256B8D0098C6F9 /* Preview Assets.xcassets in Resources */,
 				D71F2B262A256B8D0098C6F9 /* Assets.xcassets in Resources */,
 			);
@@ -407,6 +430,7 @@
 				D71F2B242A256B8B0098C6F9 /* ContentView.swift in Sources */,
 				D71F2B602A25873C0098C6F9 /* Card.swift in Sources */,
 				D71F2B632A2587910098C6F9 /* CardModel.swift in Sources */,
+				D75FF8952A28E81F0044B480 /* ShadowView.swift in Sources */,
 				D71F2B4D2A256BCA0098C6F9 /* ServiceAPI.swift in Sources */,
 				D71F2B582A25842B0098C6F9 /* CardsListView.swift in Sources */,
 				D7E0C9652A2809D0002E19CF /* SetsListView.swift in Sources */,
