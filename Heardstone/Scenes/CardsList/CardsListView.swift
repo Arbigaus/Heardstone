@@ -16,22 +16,30 @@ struct CardsListView: View {
     }
 
     var body: some View {
-        VStack {
-            Text(viewModel.title)
-                .font(.system(size: 24))
-            List(viewModel.cardsList) { card in
-                ItemView(card: card)
-                    .modifier(ShadowView())
-                    .listRowSeparator(.hidden)
-                    .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
+        NavigationView {
+            VStack {
+                List(viewModel.cardsList) { card in
+                    ItemView(card: card)
+                        .modifier(ShadowView())
+                        .listRowSeparator(.hidden)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
+                }
+                .listStyle(PlainListStyle())
+                .listRowBackground(Color.clear)
+                .isLoading(viewModel.loading)
+                .task {
+                    await viewModel.fetchCardsList()
+                }
             }
-            .listStyle(PlainListStyle())
-            .listRowBackground(Color.clear)
-            .isLoading(viewModel.loading)
-            .task {
-                await viewModel.fetchCardsList()
+            .safeAreaInset(edge: .top) {
+                Color.clear
+                    .frame(height: 0)
+                    .background(.bar)
+                    .border(.black)
             }
         }
+        .navigationTitle(viewModel.title)
+        .navigationBarTitleDisplayMode(.inline)
     }
 
     struct ItemView: View {

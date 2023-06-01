@@ -26,7 +26,13 @@ struct SetsListView: View {
                         Text(item)
                             .foregroundColor(.black)
                     }
+                    .listRowSeparator(.hidden)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .padding()
+                    .modifier(ShadowView())
                 }
+                .listStyle(PlainListStyle())
+                .listRowBackground(Color.clear)
                 .isLoading(viewModel.loading)
                 .task {
                     await viewModel.fetchSetsList()
