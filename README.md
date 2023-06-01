@@ -21,4 +21,5 @@ It used the [Heardstone](https://rapidapi.com/omgvamp/api/hearthstone) API.
 
 ## Future Improvements
 
-Make a filter in both list views.
+* Make a filter in both list views.
+* Check some warnings to fix
