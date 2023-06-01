@@ -11,6 +11,8 @@ struct CardDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel: CardDetailViewModel
 
+    @State var text: NSMutableAttributedString?
+
     init(viewModel: CardDetailViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
@@ -24,9 +26,11 @@ struct CardDetailView: View {
                     Text(viewModel.card.name ?? "")
                         .font(.system(size: 20, weight: .bold))
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
-                    Text(viewModel.card.text ?? "")
+
+                    LabelView(attributedString: text ?? NSMutableAttributedString(string: ""))
                         .font(.system(size: 16, weight: .regular))
                         .padding(EdgeInsets(top: 0, leading: 24, bottom: 4, trailing: 24))
+                        .frame(minHeight: 0, maxHeight: 60)
                 }
 
                 HStack(alignment: .top) {
@@ -44,6 +48,9 @@ struct CardDetailView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(viewModel.card.playerClass ?? ""))
+        .task {
+            text = viewModel.card.text?.htmlToAttributedString
+        }
     }
 
     struct InfosView: View {

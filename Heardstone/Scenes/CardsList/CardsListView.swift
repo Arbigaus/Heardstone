@@ -16,30 +16,32 @@ struct CardsListView: View {
     }
 
     var body: some View {
-            VStack {
-                List(viewModel.cardsList) { card in
-                    NavigationLink {
-                        CardDetailView(viewModel: CardDetailViewModel(card: card))
-                    } label: {
-                        ItemView(card: card)
-                            .modifier(ShadowView())
-                            .listRowSeparator(.hidden)
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
-                    }
+        VStack {
+            List(viewModel.cardsList) { card in
+                NavigationLink {
+                    CardDetailView(viewModel: CardDetailViewModel(card: card))
+                } label: {
+                    ItemView(card: card)
+                        .modifier(ShadowView())
+                        .listRowSeparator(.hidden)
+                        .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
                 }
-                .listStyle(PlainListStyle())
-                .listRowBackground(Color.clear)
-                .isLoading(viewModel.loading)
-                .task {
-                    await viewModel.fetchCardsList()
-                }
+                .buttonStyle(PlainButtonStyle())
             }
-            .safeAreaInset(edge: .top) {
-                Color.clear
-                    .frame(height: 0)
-                    .background(.bar)
-                    .border(.black)
+            .listRowSeparator(.hidden)
+            .listStyle(PlainListStyle())
+            .listRowBackground(Color.clear)
+            .isLoading(viewModel.loading)
+            .task {
+                await viewModel.fetchCardsList()
             }
+        }
+        .safeAreaInset(edge: .top) {
+            Color.clear
+                .frame(height: 0)
+                .background(.bar)
+                .border(.black)
+        }
         .navigationTitle(viewModel.title)
         .navigationBarTitleDisplayMode(.inline)
     }
