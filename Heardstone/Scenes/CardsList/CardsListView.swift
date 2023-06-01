@@ -10,6 +10,7 @@ import SwiftUI
 struct CardsListView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel: CardsListViewModel
+    @State private var viewDidAppear = false
 
     init(viewModel: CardsListViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -22,18 +23,24 @@ struct CardsListView: View {
                     CardDetailView(viewModel: CardDetailViewModel(card: card))
                 } label: {
                     ItemView(card: card)
-                        .modifier(ShadowView())
                         .listRowSeparator(.hidden)
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 6, trailing: 0))
                 }
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 12))
                 .buttonStyle(PlainButtonStyle())
+                .listRowSeparator(.hidden)
+                .background(Color(card.playerClass ?? ""))
+                .modifier(ShadowView())
             }
             .listRowSeparator(.hidden)
             .listStyle(PlainListStyle())
             .listRowBackground(Color.clear)
             .isLoading(viewModel.loading)
             .task {
-                await viewModel.fetchCardsList()
+                if !viewDidAppear {
+                    viewDidAppear = true
+                    await viewModel.fetchCardsList()
+                }
             }
         }
         .safeAreaInset(edge: .top) {

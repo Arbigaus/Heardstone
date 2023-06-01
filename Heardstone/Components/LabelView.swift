@@ -20,5 +20,6 @@ struct LabelView: UIViewRepresentable {
         uiView.attributedText = attributedString
         uiView.backgroundColor = .clear
         uiView.textAlignment = .center
+        uiView.numberOfLines = 0
     }
 }

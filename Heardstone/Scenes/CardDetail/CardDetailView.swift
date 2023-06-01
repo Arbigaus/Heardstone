@@ -11,7 +11,8 @@ struct CardDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel: CardDetailViewModel
 
-    @State var text: NSMutableAttributedString?
+    @State var text: NSMutableAttributedString = NSMutableAttributedString(string: "")
+    @State var flavorText: NSMutableAttributedString = NSMutableAttributedString(string: "")
 
     init(viewModel: CardDetailViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
@@ -20,14 +21,14 @@ struct CardDetailView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 16) {
-                ImageView(imageUrl: viewModel.card.img ?? "")
+                ImageView(imageUrl: viewModel.card.img ?? "https://www.hearthcards.net/cards/f1a6ed3a.png")
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 VStack {
                     Text(viewModel.card.name ?? "")
                         .font(.system(size: 20, weight: .bold))
                         .padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
 
-                    LabelView(attributedString: text ?? NSMutableAttributedString(string: ""))
+                    LabelView(attributedString: text)
                         .font(.system(size: 16, weight: .regular))
                         .padding(EdgeInsets(top: 0, leading: 24, bottom: 4, trailing: 24))
                         .frame(minHeight: 0, maxHeight: 60)
@@ -44,12 +45,21 @@ struct CardDetailView: View {
                     InfosView(title: "Rarity", value: viewModel.card.rarity ?? "")
                     InfosView(title: "Faction", value: viewModel.card.faction ?? "Unknow")
                 }
+
+                LabelView(attributedString: flavorText)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(viewModel.card.playerClass ?? ""))
         .task {
-            text = viewModel.card.text?.htmlToAttributedString
+            if let text = viewModel.card.text?.htmlToAttributedString {
+                self.text = text
+            }
+
+            if let flavorText = viewModel.card.flavor?.htmlToAttributedString {
+                self.flavorText = flavorText
+            }
+
         }
     }
 
